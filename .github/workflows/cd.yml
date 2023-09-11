@@ -1,15 +1,14 @@
+name: CD
 on:
   push:
     branches: master
 jobs:
-  publish:
-    name: Publish
+  cd:
+    name: Publish to crates.io
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Format
-        run: cargo fmt --check
-      - name: Test
-        run: cargo test
-      - name: Dry-run publish
-        run: cargo publish --dry-run
+      - name: Log into Crates.io
+        run: cargo login ${{ secrets.CRATES_ACCESS_TOKEN }}
+      - name: Publish
+        run: cargo publish

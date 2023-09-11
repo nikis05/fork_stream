@@ -1,3 +1,4 @@
+name: CI
 on:
   pull_request:
     branches: master
@@ -7,7 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Log into Crates.io
-        run: cargo login ${{ secrets.CRATES_ACCESS_TOKEN }}
-      - name: Publish
-        run: cargo publish
+      - name: Format
+        run: cargo fmt --check
+      - name: Test
+        run: cargo test
+      - name: Dry-run publish
+        run: cargo publish --dry-run
