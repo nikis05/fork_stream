@@ -1,0 +1,19 @@
+[package]
+name = "fork_stream"
+version = "0.1.0"
+edition = "2021"
+authors = ["Kit Isaev"]
+description = "Clone any stream `S` where `<S as Stream>::Item: Clone`"
+homepage = "https://lib.rs/fork_stream"
+repository = "https://github.com/nikis05/fork_stream"
+license = "MIT"
+keywords = ["stream", "clone stream"]
+categories = ["asynchronous", "rust-patterns"]
+
+[dependencies]
+futures = "0.3.28"
+pin-project = "1.1.3"
+
+[dev-dependencies]
+tokio = { version = "1.32.0", features = ["rt", "macros"] }
+insta = "1.31.0"
