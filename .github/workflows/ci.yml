@@ -1,0 +1,13 @@
+on:
+  pull_request:
+    branches: master
+jobs:
+  ci:
+    name: CI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Log into Crates.io
+        run: cargo login ${{ secrets.CRATES_ACCESS_TOKEN }}
+      - name: Publish
+        run: cargo publish
