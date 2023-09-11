@@ -7,7 +7,7 @@ description = "Clone any stream `S` where `<S as Stream>::Item: Clone`"
 homepage = "https://lib.rs/fork_stream"
 repository = "https://github.com/nikis05/fork_stream"
 license = "MIT"
-keywords = ["stream", "clone stream"]
+keywords = ["stream", "clone", "fork"]
 categories = ["asynchronous", "rust-patterns"]
 
 [dependencies]
